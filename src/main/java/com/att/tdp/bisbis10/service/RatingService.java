@@ -13,19 +13,11 @@ public class RatingService {
 
     public void addRating(RatingDto ratingDto) {
         Long restaurantId = ratingDto.getRestaurantId();
-        Double rating = ratingDto.getRating();
+        Double rating = ratingDto.getAverageRating();
 
         Restaurant restaurant = restaurantRepository.findById(restaurantId)
                 .orElseThrow(() -> new IllegalStateException("Restaurant with id " + restaurantId + " does not exist"));
-
-        Double currentRating = restaurant.getRating();
-        if (currentRating == null) {
-            restaurant.setRating(rating);
-        } else {
-            Double averageRating = (currentRating + rating) / 2;
-            restaurant.setRating(averageRating);
-        }
-
+        restaurant.setAverageRating(rating);
         restaurantRepository.save(restaurant);
     }
 }

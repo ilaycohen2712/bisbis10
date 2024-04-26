@@ -2,7 +2,7 @@ package com.att.tdp.bisbis10.DTO;
 
 public class RatingDto {
     private Long restaurantId;
-    private Double rating;
+    private Double averageRating;
 
     public Long getRestaurantId() {
         return restaurantId;
@@ -12,11 +12,11 @@ public class RatingDto {
         this.restaurantId = restaurantId;
     }
 
-    public Double getRating() {
-        return rating;
+    public Double getAverageRating() {
+        return averageRating;
     }
 
-    public void setRating(Double rating) {
-        this.rating = rating;
+    public void setAverageRating(Double averageRating) {
+        this.averageRating = averageRating;
     }
 }

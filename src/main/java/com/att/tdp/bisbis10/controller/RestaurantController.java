@@ -32,15 +32,15 @@ public class RestaurantController {
     }
 
     @PostMapping
-    public ResponseEntity<Restaurant> createRestaurant(@RequestBody Restaurant restaurant) {
-        Restaurant createdRestaurant = restaurantService.createRestaurant(restaurant);
-        return ResponseEntity.status(HttpStatus.CREATED).body(createdRestaurant);
+    public ResponseEntity<Restaurant> createRestaurant(@RequestBody RestaurantDto restaurantDto) {
+        restaurantService.createRestaurant(restaurantDto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(null);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Restaurant> updateRestaurant(@PathVariable("id") Long restaurantId, @RequestBody RestaurantDto updateRestaurantDto) {
-        Restaurant updatedRestaurant = restaurantService.updateRestaurant(restaurantId, RestaurantDto.getCuisines());
-        return ResponseEntity.ok(updatedRestaurant);
+        restaurantService.updateRestaurant(restaurantId, updateRestaurantDto);
+        return ResponseEntity.ok(null);
     }
 
     @DeleteMapping("/{id}")

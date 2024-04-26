@@ -10,9 +10,12 @@ import java.util.UUID;
 public class Orders {
     @Id @GeneratedValue
     UUID orderId;
-    Long restaurantId;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @ManyToOne
+    @JoinColumn(name = "restaurantId")
+    Restaurant restaurant;
+
+    @OneToMany(mappedBy = "order",cascade = CascadeType.ALL, orphanRemoval = true)
     List<OrderItem> orderItems = new ArrayList<>();
     public Orders(){}
     public void setId(UUID id) {
@@ -30,19 +33,19 @@ public class Orders {
         this.orderId = orderId;
     }
 
-    public Long getRestaurantId() {
-        return restaurantId;
-    }
-
-    public void setRestaurantId(Long restaurantId) {
-        this.restaurantId = restaurantId;
-    }
-
     public List<OrderItem> getOrderItems() {
         return orderItems;
     }
 
     public void setOrderItems(List<OrderItem> orderItems) {
         this.orderItems = orderItems;
+    }
+
+    public Restaurant getRestaurant() {
+        return restaurant;
+    }
+
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
     }
 }

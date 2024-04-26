@@ -1,8 +1,6 @@
 package com.att.tdp.bisbis10.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class OrderItem {
@@ -10,6 +8,10 @@ public class OrderItem {
     Long orderItemId;
     Long dishId;
     Integer amount;
+
+    @ManyToOne
+    @JoinColumn(name = "orderId")
+    Orders order;
 
     public OrderItem() {}
 
@@ -36,5 +38,13 @@ public class OrderItem {
 
     public void setAmount(Integer amount) {
         this.amount = amount;
+    }
+
+    public Orders getOrder() {
+        return order;
+    }
+
+    public void setOrder(Orders order) {
+        this.order = order;
     }
 }

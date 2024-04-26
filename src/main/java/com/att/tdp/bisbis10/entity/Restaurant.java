@@ -1,11 +1,8 @@
 package com.att.tdp.bisbis10.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.ElementCollection;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -14,14 +11,15 @@ public class Restaurant {
     @Id @GeneratedValue
     Long id;
     String name;
-    @JsonProperty("averageRating")
+
     Double averageRating;
 
-    @JsonProperty("isKosher")
     Boolean isKosher;
-
     @ElementCollection
     Set<String> cuisines;
+
+    @OneToMany(mappedBy = "restaurant")
+    List<Dish> dishesList;
     public Restaurant() {}
 
 
@@ -41,19 +39,19 @@ public class Restaurant {
         this.name = name;
     }
 
-    public Double getRating() {
+    public Double getAverageRating() {
         return averageRating;
     }
 
-    public void setRating(Double averageRating) {
+    public void setAverageRating(Double averageRating) {
         this.averageRating = averageRating;
     }
 
-    public Boolean getKosher() {
+    public Boolean getIsKosher() {
         return isKosher;
     }
 
-    public void setKosher(Boolean iskosher) {
+    public void setIsKosher(Boolean iskosher) {
         this.isKosher = iskosher;
     }
 
@@ -63,5 +61,13 @@ public class Restaurant {
 
     public void setCuisines(Set<String> cuisines) {
         this.cuisines = cuisines;
+    }
+
+    public List<Dish> getDishesList() {
+        return dishesList;
+    }
+
+    public void setDishesList(List<Dish> dishesList) {
+        this.dishesList = dishesList;
     }
 }
