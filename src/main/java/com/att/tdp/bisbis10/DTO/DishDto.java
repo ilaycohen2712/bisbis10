@@ -1,4 +1,4 @@
-package main.java.com.att.tdp.bisbis10.DTO;
+package com.att.tdp.bisbis10.DTO;
 
 public class DishDto {
 }

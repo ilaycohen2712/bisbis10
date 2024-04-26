@@ -1,5 +1,6 @@
 package com.att.tdp.bisbis10.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,7 +14,10 @@ public class Restaurant {
     @Id @GeneratedValue
     Long id;
     String name;
+    @JsonProperty("averageRating")
     Double averageRating;
+
+    @JsonProperty("isKosher")
     Boolean isKosher;
 
     @ElementCollection

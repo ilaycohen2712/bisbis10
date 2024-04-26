@@ -12,38 +12,37 @@ import java.util.stream.Collectors;
 
 @Service
 public class RestaurantService {
-
     @Autowired
     RestaurantRepository restaurantRepository;
-    public List<Restaurant> getAllRestaurants(){
+
+    public List<Restaurant> getAllRestaurants() {
         return restaurantRepository.findAll();
     }
+
     public List<Restaurant> getRestaurantsByCuisine(String cuisine) {
         List<Restaurant> restaurants = restaurantRepository.findAll();
         restaurants = restaurants.stream().filter(restaurant -> restaurant.getCuisines().contains(cuisine)).collect(Collectors.toList());
-       return restaurants;
+        return restaurants;
     }
 
-
-    public void createRestaurant(Restaurant restaurant){
-        Restaurant r = restaurant;
-        r.setName(restaurant.getName());
-        r.setCuisines(restaurant.getCuisines());
-        r.setKosher(restaurant.getKosher());
-        r.setRating(restaurant.getRating());
-        restaurantRepository.save(r);
+    public Restaurant getRestaurantById(Long id) {
+        return restaurantRepository.findById(id).orElseThrow(() -> new IllegalStateException("Restaurant with id " + id + " does not exist"));
     }
+
+    public Restaurant createRestaurant(Restaurant restaurant) {
+        return restaurantRepository.save(restaurant);
+    }
+
     @Transactional
-    public void updateRestaurant(Long restaurantId, Set<String> cuisines) {
-        Restaurant restaurant = restaurantRepository.findById(restaurantId).orElseThrow(()->
-                new IllegalStateException("Restaurant with id " + restaurantId + " dose not exists"));
+    public Restaurant updateRestaurant(Long restaurantId, Set<String> cuisines) {
+        Restaurant restaurant = restaurantRepository.findById(restaurantId).orElseThrow(() -> new IllegalStateException("Restaurant with id " + restaurantId + " does not exist"));
         restaurant.setCuisines(cuisines);
-        restaurantRepository.save(restaurant);
+        return restaurantRepository.save(restaurant);
     }
+
     public void deleteRestaurant(Long restaurantId) {
         if (!restaurantRepository.existsById(restaurantId))
-            throw new IllegalStateException("Restaurant with id " + restaurantId + " dose not exists");
+            throw new IllegalStateException("Restaurant with id " + restaurantId + " does not exist");
         restaurantRepository.deleteById(restaurantId);
     }
-
 }
