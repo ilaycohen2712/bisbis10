@@ -1,0 +1,536 @@
+GET http://localhost:8080/restaurants
+
+<> 2024-05-01T123340.200.json
+
+###
+
+POST http://localhost:8080/restaurants
+Content-Type: application/json
+
+{
+  "name": "Taizu res",
+  "isKosher": true,
+  "averageRating": 3.6,
+  "cuisines": [
+    "Meat",
+    "Mexican"
+  ]
+}
+
+###
+
+POST http://localhost:8080/restaurants
+Content-Type: application/json
+
+{
+  "name": "Sebastian",
+  "isKosher": true,
+  "averageRating": 3.5,
+  "cuisines": [
+    "Meat",
+    "Mexican"
+  ]
+}
+
+###
+
+GET http://localhost:8080/restaurants
+
+<> 2024-04-26T151111.200.json
+
+###
+
+GET http://localhost:8080/restaurants?cuisine=Asian
+
+<> 2024-04-26T151107.200.json
+
+###
+
+GET http://localhost:8080/restaurants/1102
+
+<> 2024-04-26T151101.200.json
+
+###
+
+POST http://localhost:8080/restaurants
+Content-Type: application/json
+
+{
+  "name": "Taizu yuval",
+  "isKosher": false,
+  "averageRating": 4.83,
+  "cuisines": [
+    "Asian",
+    "Mexican",
+    "Indian"
+  ]
+}
+
+###
+
+GET http://localhost:8080/restaurants/1102/dishes
+
+<> 2024-04-26T150909.200.json
+
+###
+
+GET http://localhost:8080/restaurants/802/dishes
+
+<> 2024-04-26T150905.200.json
+
+###
+
+DELETE http://localhost:8080/restaurants/1102/dishes/1
+
+###
+
+PUT http://localhost:8080/restaurants/1102/dishes/3
+Content-Type: application/json
+
+{
+"description":"Great one",
+"price":34
+}
+
+<> 2024-04-26T150853.200.json
+
+###
+
+PUT http://localhost:8080/restaurants/1102/dishes/1
+Content-Type: application/json
+
+{
+"description":"Great one",
+"price":34
+}
+
+<> 2024-04-26T150832.200.json
+
+###
+
+POST http://localhost:8080/restaurants/1102/dishes
+Content-Type: application/json
+
+{
+  "dishName":"Ilay",
+  "description":"Great one",
+  "price": 34
+}
+
+<> 2024-04-26T150814.201.json
+
+###
+
+GET http://localhost:8080/restaurants/1102
+
+<> 2024-04-26T145436.200.json
+
+###
+
+GET http://localhost:8080/restaurants/1102
+
+<> 2024-04-26T144845.200.json
+
+###
+
+GET http://localhost:8080/restaurants/1202
+
+<> 2024-04-26T144838.500.json
+
+###
+
+POST http://localhost:8080/order
+Content-Type: application/json
+
+{
+  "restaurantId": 1102,
+  "orderItems": [
+    {
+      "dishId": 3,
+      "amount": 1
+    },
+    {
+      "dishId": 4,
+      "amount": 1
+    }
+  ]
+}
+
+<> 2024-04-26T144728.200.json
+
+###
+
+POST http://localhost:8080/order
+Content-Type: application/json
+
+{
+  "restaurantId": 1102,
+  "orderItems": [
+    {
+      "dishId": 3,
+      "amount": 1
+    },
+    {
+      "dishId": 4,
+      "amount": 1
+    }
+  ]
+}
+
+<> 2024-04-26T144515.200.json
+
+###
+
+POST http://localhost:8080/order
+Content-Type: application/json
+
+{
+  "restaurantId": 1102,
+  "orderItems": [
+    {
+      "dishId": 3,
+      "amount": 1
+    },
+    {
+      "dishId": 4,
+      "amount": 1
+    }
+  ]
+}
+
+<> 2024-04-26T144417.406.json
+
+###
+
+POST http://localhost:8080/order
+Content-Type: application/json
+
+{
+  "restaurantId": 1102,
+  "orderItems": [
+    {
+      "dishId": 3,
+      "amount": 1
+    },
+    {
+      "dishId": 4,
+      "amount": 1
+    }
+  ]
+}
+
+<> 2024-04-26T144139.200.json
+
+###
+
+POST http://localhost:8080/restaurants/1102/dishes
+Content-Type: application/json
+
+{
+  "dishName":"Ilay",
+  "description":"Great one",
+  "price": 34
+}
+
+<> 2024-04-26T144114.201.json
+
+###
+
+POST http://localhost:8080/restaurants/1102/dishes
+Content-Type: application/json
+
+{
+  "dishName":"Shakshuka",
+  "description":"Great one",
+  "price": 34
+}
+
+<> 2024-04-26T144105.201.json
+
+###
+
+POST http://localhost:8080/restaurants/1102/dishes
+Content-Type: application/json
+
+{
+  "name":"Shakshuka",
+  "description":"Great one",
+  "price": 34
+}
+
+<> 2024-04-26T144054.201.json
+
+###
+
+POST http://localhost:8080/restaurants/1102/dishes
+Content-Type: application/json
+
+{
+  "name":"Shakshuka",
+  "description":"Great one",
+  "price": 34
+}
+
+<> 2024-04-26T144041.201.json
+
+###
+
+POST http://localhost:8080/order
+Content-Type: application/json
+
+{
+  "restaurantId": 2,
+  "orderItems": [
+    {
+      "dishId": 12,
+      "amount": 1
+    },
+    {
+      "dishId": 14,
+      "amount": 1
+    }
+  ]
+}
+
+<> 2024-04-26T142636.200.json
+
+###
+
+POST http://localhost:8080/ratings
+Content-Type: application/json
+
+{
+  "restaurantId": 1053,
+  "averageRating": 3.3
+}
+
+###
+
+POST http://localhost:8080/ratings
+Content-Type: application/json
+
+{
+  "restaurantId": 1102,
+  "averageRating": 3.3
+}
+
+###
+
+POST http://localhost:8080/ratings
+Content-Type: application/json
+
+{
+  "restaurantId": 1152,
+  "averageRating": 3.3
+}
+
+<> 2024-04-26T142551.500.json
+
+###
+
+DELETE http://localhost:8080/restaurants/1152
+
+###
+
+PUT http://localhost:8080/restaurants/1152
+Content-Type: application/json
+
+{
+  "isKosher": false
+}
+
+###
+
+PUT http://localhost:8080/restaurants/1152
+Content-Type: application/json
+
+{
+  "isKosher": false
+}
+
+###
+
+PUT http://localhost:8080/restaurants/1152
+Content-Type: application/json
+
+{
+  "isKosher": false
+}
+
+###
+
+PUT http://localhost:8080/restaurants/1152
+Content-Type: application/json
+
+{
+  "isKosher": false
+}
+
+###
+
+PUT http://localhost:8080/restaurants/1202
+Content-Type: application/json
+
+{
+  "isKosher": false
+}
+
+<> 2024-04-26T141622.500.json
+
+###
+
+PUT http://localhost:8080/restaurants/1202
+Content-Type: application/json
+
+{
+  "isKosher": false
+}
+
+<> 2024-04-26T141618.500.json
+
+###
+
+POST http://localhost:8080/ratings
+Content-Type: application/json
+
+{
+  "restaurantId": 1152,
+  "averageRating": 3.3
+}
+
+###
+
+POST http://localhost:8080/ratings
+Content-Type: application/json
+
+{
+  "restaurantId": 1152,
+  "averageRating": 3.3
+}
+
+###
+
+POST http://localhost:8080/ratings
+Content-Type: application/json
+
+{
+  "restaurantId": 1053,
+  "averageRating": 3.3
+}
+
+###
+
+POST http://localhost:8080/ratings
+Content-Type: application/json
+
+{
+  "restaurantId": 1053,
+  "averageRating": 3.3
+}
+
+###
+
+POST http://localhost:8080/ratings
+Content-Type: application/json
+
+{
+  "restaurantId": 1053,
+  "averageRating": 3.3
+}
+
+###
+
+POST http://localhost:8080/ratings
+Content-Type: application/json
+
+{
+  "restaurantId": 1053,
+  "rating": 3.3
+}
+
+###
+
+DELETE http://localhost:8080/restaurants/1202
+
+###
+
+PUT http://localhost:8080/restaurants/1202
+Content-Type: application/json
+
+{
+  "cuisines": [
+    "Asian"
+  ]
+}
+
+###
+
+PUT http://localhost:8080/restaurants/1052
+Content-Type: application/json
+
+{
+  "cuisines": [
+    "Asian"
+  ]
+}
+
+<> 2024-04-26T140908.500.json
+
+###
+
+GET http://localhost:8080/restaurants?cuisine=Asian
+
+<> 2024-04-26T140859.200.json
+
+###
+
+GET http://localhost:8080/restaurants/1202
+
+<> 2024-04-26T140855.200.json
+
+###
+
+GET http://localhost:8080/restaurants
+
+<> 2024-04-26T140843.200.json
+
+###
+
+POST http://localhost:8080/restaurants
+Content-Type: application/json
+
+{
+  "name": "Taizu yuval",
+  "isKosher": false,
+  "averageRating": 4.83,
+  "cuisines": [
+    "Asian",
+    "Mexican",
+    "Indian"
+  ]
+}
+
+###
+
+GET http://localhost:8080/restaurants
+
+<> 2024-04-26T140740.200.json
+
+###
+
+POST http://localhost:8080/restaurants
+Content-Type: application/json
+
+{
+  "name": "Taizu ilayy",
+  "isKosher": false,
+  "averageRating": 4.83,
+  "cuisines": [
+    "Asian",
+    "Mexican",
+    "Indian"
+  ]
+}
+
+###
+
